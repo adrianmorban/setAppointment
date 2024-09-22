@@ -9,7 +9,7 @@ const ddbDocClient = DynamoDBDocumentClient.from(client);
 
 const setAppointment = async (event) => {
 
-    const { day, hour, fullName, dni } = event;
+    const { day, hour, fullName, cedula } = event;
 
     const command = new PutCommand({
         TableName: "sallyAppointments",
@@ -18,7 +18,7 @@ const setAppointment = async (event) => {
             day: day,
             hour: hour,
             fullName: fullName,
-            dni: dni,
+            dni: cedula,
         },
         removeUndefinedValues: true,
         removeNullValues: true,
